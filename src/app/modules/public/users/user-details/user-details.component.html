@@ -1,0 +1,86 @@
+<div class="row">{{formGroup.value | json}}</div>
+<div class="row">
+  <div class="col-xs-8 offset-xs-2">
+    <form [formGroup]="formGroup"
+          (submit)="onSubmit()">
+      <section class="form-block">
+        <label>{{userId ? 'Edit' : 'Add'}} user</label>
+        <app-form-control-wrapper [control]="formGroup.get('type')"
+                                  [errors]="errors.type">
+          <label for="user_type"
+                 control-label>Type user:</label>
+          <div class="select"
+               control-wrapper>
+            <select id="user_type"
+                    formControlName="type">
+              <option value=""
+                      disabled>choose</option>
+              <option *ngFor="let userType of userTypes"
+                      [value]="userType.key">{{userType.value}}</option>
+            </select>
+          </div>
+        </app-form-control-wrapper>
+        <app-form-control-wrapper [control]="formGroup.get('name')"
+                                  [errors]="errors.name">
+          <label for="user_name"
+                 control-label>Name</label>
+          <input type="text"
+                 id="user_name"
+                 placeholder="Name"
+                 formControlName="name"
+                 control-wrapper>
+        </app-form-control-wrapper>
+
+        <app-form-control-wrapper *ngIf="formGroup.get('username')"
+                                  [control]="formGroup.get('username')"
+                                  [errors]="errors.username">
+          <label for="user_username"
+                 control-label>Username</label>
+          <input type="text"
+                 id="user_username"
+                 placeholder="Username"
+                 formControlName="username"
+                 control-wrapper>
+        </app-form-control-wrapper>
+        <app-form-control-wrapper *ngIf="formGroup.get('phone')"
+                                  [control]="formGroup.get('phone')"
+                                  [errors]="errors.phone">
+          <label for="user_phone"
+                 control-label>Phone</label>
+          <input type="text"
+                 id="user_phone"
+                 placeholder="Phone"
+                 formControlName="phone"
+                 control-wrapper>
+        </app-form-control-wrapper>
+        <app-form-control-wrapper *ngIf="formGroup.get('email')"
+                                  [control]="formGroup.get('email')"
+                                  [errors]="errors.email">
+          <label for="user_email"
+                 control-label>Email</label>
+          <input type="email"
+                 id="user_email"
+                 placeholder="Email"
+                 formControlName="email"
+                 control-wrapper>
+        </app-form-control-wrapper>
+        <app-form-control-wrapper *ngIf="formGroup.get('website')"
+                                  [control]="formGroup.get('website')"
+                                  [errors]="errors.website">
+          <label for="user_website"
+                 control-label>Website</label>
+          <input type="text"
+                 id="user_website"
+                 placeholder="Website"
+                 formControlName="website"
+                 control-wrapper>
+        </app-form-control-wrapper>
+      </section>
+      <button type="submit"
+              class="btn btn-primary">Save</button>
+      <button type="button"
+              class="btn btn-warning"
+              routerLink="/users">Back</button>
+    </form>
+  </div>
+</div>

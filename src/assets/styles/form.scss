@@ -1,0 +1,27 @@
+form {
+    .invalid {
+        input,
+        .select,
+        textarea,
+        sui-multi-select {
+            border-bottom: 1px solid $main-red-accent;
+            background: linear-gradient(to bottom, transparent 95%, $main-red-accent 95%);
+            transition: none;
+        }
+    }
+    .form-group {
+        .invalid {
+            .select+.tooltip-content {
+                background: $main-red-accent;
+                visibility: visible;
+                opacity: 1;
+                &:before {
+                    border-top-color: $main-red-accent;
+                    border-right-color: $main-red-accent;
+                    border-bottom-color: transparent;
+                    border-left-color: transparent;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,10 @@
+@import "variables";
+a {
+    color: $sidebar-bg-color;
+    &:visited {
+        color: $sidebar-bg-color;
+    }
+    &:hover {
+        color: $grey-font;
+    }
+}

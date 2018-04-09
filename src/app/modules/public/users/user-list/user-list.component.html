@@ -1,0 +1,58 @@
+{{selectedUser}}
+<clr-datagrid [(clrDgSingleSelected)]="selectedUser"
+              [clDgRowSelection]="true">
+  <clr-dg-action-bar>
+    <div class="btn-group">
+      <button type="button"
+              class="btn btn-sm btn-secondary"
+              (click)="onAdd()">
+        <clr-icon shape="plus"></clr-icon> Add new</button>
+      <button type="button"
+              class="btn btn-sm btn-secondary"
+              (click)="onDelete()"
+              *ngIf="selectedUser">
+        <clr-icon shape="close"></clr-icon> Delete</button>
+      <button type="button"
+              class="btn btn-sm btn-secondary"
+              (click)="onEdit()"
+              *ngIf="selectedUser">
+        <clr-icon shape="pencil"></clr-icon> Edit</button>
+    </div>
+  </clr-dg-action-bar>
+  <clr-dg-column>User ID</clr-dg-column>
+  <clr-dg-column [clrDgField]="'name'"
+                 [(clrFilterValue)]="myFilterValue">Name</clr-dg-column>
+  <clr-dg-column [clrDgField]="'email'"
+                 [clrDgSortBy]="emailComporator"
+                 [clrDgSortOrder]="descEmail">
+    Email
+    <clr-dg-filter [clrDgFilter]="domainEmailFilter">
+      <app-doman-email-filter #domainEmailFilter
+                              [listDomainEmailSub]="listDomainEmailSub">
+      </app-doman-email-filter>
+    </clr-dg-filter>
+  </clr-dg-column>
+  <clr-dg-column [clrDgField]="'phone'">Phone</clr-dg-column>
+  <clr-dg-column [clrDgField]="'website'">Website</clr-dg-column>
+
+  <clr-dg-row *clrDgItems="let user of users"
+              [clrDgItem]="user">
+    <clr-dg-cell>{{user.id}}</clr-dg-cell>
+    <clr-dg-cell>{{user.name}}</clr-dg-cell>
+    <clr-dg-cell>{{user.email}}</clr-dg-cell>
+    <clr-dg-cell>{{user.phone}}</clr-dg-cell>
+    <clr-dg-cell>
+      <a href="http://{{user.website}}"
+         title="{{user.website}}"
+         target="_blank">
+        {{user.website}}
+      </a>
+    </clr-dg-cell>
+  </clr-dg-row>
+  <clr-dg-footer>
+    <clr-dg-pagination #pagination
+                       [clrDgPageSize]="10">
+      {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}} of {{pagination.totalItems}} users
+    </clr-dg-pagination>
+  </clr-dg-footer>
+</clr-datagrid>

@@ -1,0 +1,13 @@
+<div class="form-group">
+  <ng-content select="[control-label]"></ng-content>
+  <label aria-haspopup="true"
+         role="tooltip"
+         class="tooltip tooltip-validation tooltip-md tooltip-right"
+         [class.invalid]="(control?.touched || control?.dirty) && control?.invalid">
+    <ng-content select="[control-wrapper]"></ng-content>
+    <app-form-control-errors-wrapper [control]="control"
+                                     [errors]="errors"
+                                     class="tooltip-content">
+    </app-form-control-errors-wrapper>
+  </label>
+</div>

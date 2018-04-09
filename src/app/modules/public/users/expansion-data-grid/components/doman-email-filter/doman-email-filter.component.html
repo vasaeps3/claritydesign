@@ -1,0 +1,14 @@
+<form *ngIf="listDomainEmail"
+      class="compact"
+      [formGroup]="checkformGroup">
+  <div class="row"
+       *ngIf="checkformGroup?.controls">
+    <div class="col-xs-6"
+         *ngFor="let domainEmail of listDomainEmail; let key = index">
+      <clr-checkbox formControlName="{{domainEmail}}"
+                    name="{{domainEmail}}">
+        {{domainEmail}}
+      </clr-checkbox>
+    </div>
+  </div>
+</form>

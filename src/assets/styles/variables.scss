@@ -1,0 +1,70 @@
+$overall-bg-color: #fff;
+$sidebar-bg-color: #fafafa;
+$main-border-color: #e0e0e0;
+
+$main-cyan-color: #00B7D6;
+$main-red-accent: #c92100;
+$orange-accent: #FF5722;
+
+$green-color: #4CAF50;
+
+$component-side-padding: 22px;
+
+// typography
+$base-line: 24; // weird, but as-is in Clarity UI library
+$base-font-size: $base-line * 1px;
+$black-font:#212121;
+$black-grey-font: #616161;
+$grey-font: #9e9e9e;
+$light-grey-font: #BDBDBD;
+
+// form
+$top-field-offset: 16px;
+$side-label-offset: 5px;
+$incl-vat-color: #00BFA5;
+$excl-vat-color: #FF9E80;
+$vat-dia-value: 10;
+$guest-view-color: #E91E63;
+$not-guest-view-color: #00B7D6;
+$control-border-color: #9a9a9a;
+
+// toolbar
+$toolbar-height: 80px;
+
+// tables
+$table-active-row-bg: rgba(0, 183, 214, 0.03);
+$table-total-row-bg: #F7FCFD;
+
+// resources
+$menu-resources-actions-cell-width: 100px;
+$menu-resources-table-item-offset: 12px;
+
+// dnd
+$dnd-handle-offset: 30px;
+
+//booking types
+$opt: #E87F7E;
+$def: #F26D9D;
+$vb: #C274CF;
+$off: #8491D1;
+$gd: #70BDF7;
+$fv: #8CCE8F;
+$ba: #C0CA33;
+$los: #FFB12A;
+$wai: #9AAEB7;
+$bv: #57D6E5;
+$cxl: #AFD7D9;
+$pas: #d97048;
+$close-time: #EEEEEE;
+$location-events: #bdbdbd;
+
+// modal
+$modal-offset-value: 60;
+
+// payment statuses
+$status-paid: #4caf50;
+$status-ontrack: #ff9800;
+$status-overdue: #f44336;
+$status-waiting: #bdbdbd;
+$payment-booking-id: #ff5722;
+$payment-info-label: #bdbdbd;

@@ -1,0 +1,17 @@
+<clr-header>
+  <div class="branding">
+    <a [routerLink]="['/']" class="logo-and-title">
+      <clr-icon shape="home" size="24"></clr-icon>
+      <span class="title">JSON Placeholder</span>
+    </a>
+  </div>
+  <div class="header-nav" [clr-nav-level]="1">
+    <a href="javascript://" [routerLink]="['/users']" routerLinkActive="active" class="nav-link nav-text" title="Users">Users</a>
+    <a href="javascript://" [routerLink]="['/posts']" routerLinkActive="active"class="nav-link nav-text" title="Posts">Posts</a>
+  </div>
+  <div class="header-actions">
+    <a href="javascript://" class="nav-link nav-icon">
+      <clr-icon shape="cog"></clr-icon>
+    </a>
+  </div>
+</clr-header>
