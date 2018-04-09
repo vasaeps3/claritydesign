@@ -7,6 +7,7 @@ import { switchMap } from 'rxjs/operators';
 import { take } from 'rxjs/operators';
 import 'rxjs/add/observable/forkJoin';
 
+import { NotificationService } from '@app/core/services/notification.service';
 import { BaseFormComponent } from '@app/common/components/base-form/base-form.component';
 import { UserDetailService } from './user-details.service';
 import { User } from '@app/common/models/user.model';
@@ -34,7 +35,8 @@ export class UserDetailsComponent extends BaseFormComponent implements OnInit, O
     private formBuilder: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
-    private userDetailService: UserDetailService
+    private userDetailService: UserDetailService,
+    private notification: NotificationService
   ) {
     super();
   }
@@ -51,6 +53,7 @@ export class UserDetailsComponent extends BaseFormComponent implements OnInit, O
           if (!!param['userId']) {
             return this.userDetailService.getUser(param['userId']);
           } else {
+            this.notification.success('did');
             return Observable.of(null) as Observable<User>;
           }
         })

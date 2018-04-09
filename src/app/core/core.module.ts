@@ -1,27 +1,33 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ToasterModule } from 'angular2-toaster';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { ApiService } from './services/api.service';
+import { ToasterComponent } from './components/toaster.component';
+import { HeaderInterceptor } from './interceptors/header.interceptor';
+import { NotificationService } from './services/notification.service';
 import { httpInterceptorProviders } from './interceptors';
-import { HeaderInterceptor } from '@app/core/interceptors/header.interceptor';
-import { MockService } from '@app/mock/mock.service';
 
 
 @NgModule({
   imports: [
     CommonModule,
     HttpClientModule,
-    // HttpClientInMemoryWebApiModule.forRoot(MockService, { dataEncapsulation: false })
+    BrowserAnimationsModule,
+    ToasterModule.forRoot()
   ],
   declarations: [
-
+    ToasterComponent
   ],
   exports: [
+    ToasterComponent
   ],
   providers: [
     ApiService,
+    NotificationService,
     httpInterceptorProviders
   ]
 })
