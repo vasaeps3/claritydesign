@@ -35,8 +35,7 @@ export class UserDetailsComponent extends BaseFormComponent implements OnInit, O
     private formBuilder: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
-    private userDetailService: UserDetailService,
-    private notification: NotificationService
+    private userDetailService: UserDetailService
   ) {
     super();
   }
@@ -53,7 +52,6 @@ export class UserDetailsComponent extends BaseFormComponent implements OnInit, O
           if (!!param['userId']) {
             return this.userDetailService.getUser(param['userId']);
           } else {
-            this.notification.success('did');
             return Observable.of(null) as Observable<User>;
           }
         })
